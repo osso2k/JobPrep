@@ -1,14 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import {BrowserRouter} from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="min-h-screen bg-[url('./assets/wallpaper.jpg')] w-full">
-    <App />
+    <BrowserRouter>
+      <div className="min-h-screen bg-pink-200 w-full">
+        <App />
+      </div>
+    </BrowserRouter>
       
-    </div>
   </StrictMode>,
 )
