@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { connectDB } from './config/db.js'
 import router from './routes/authRoutes.js'
+import { authMiddleware } from './middleware/authMiddleware.js'
 
 
 dotenv.config()
@@ -13,7 +14,7 @@ app.use(express.json())
 
 await connectDB()
 
-app.get("/", (req, res) => {
+app.get("/", authMiddleware, (req, res) => {
     res.send("its running")
 })
 

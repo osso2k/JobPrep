@@ -16,7 +16,13 @@ export const signup = async (req, res) => {
         })
         await user.save()
 
-        generateToken(user)
+        const token = generateToken(user, req, res)
+
+        res.json({
+            message: "You are now logged in",
+            token,
+            user
+        })
 
         res.send("User created")
         console.log(user)
@@ -29,13 +35,19 @@ export const login = async (req, res) => {
     try {
         const { email, password } = req.body
 
-        const user = User.find({ email })
-        if (!user) { res.send("User not found") }
+        const user = await User.findOne({ email })
+        if (!user) { return res.status(404).json({ message: "User not found" }) }
 
-        const comparePassword = bcrypt.compare(password, user.password)
-        if (!comparePassword) { res.send("Wrong Info") }
+        const comparePassword = await bcrypt.compare(password, user.password)
+        if (!comparePassword) { return res.status(400).json({ message: "Invalid credentials" }) }
 
-        res.send("You are now logged in")
+        const token = generateToken(user, req, res)
+
+        res.json({
+            message: "You are now logged in",
+            token,
+            user
+        })
     } catch (error) {
         console.log(error.message)
     }
