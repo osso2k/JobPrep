@@ -14,7 +14,7 @@ app.use(express.json())
 
 await connectDB()
 
-app.get("/", authMiddleware, (req, res) => {
+app.get("/protected", authMiddleware, (req, res) => {
     res.send("its running")
 })
 

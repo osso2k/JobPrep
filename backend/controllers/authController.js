@@ -19,12 +19,10 @@ export const signup = async (req, res) => {
         const token = generateToken(user, req, res)
 
         res.json({
-            message: "You are now logged in",
+            message: "User created",
             token,
             user
         })
-
-        res.send("User created")
         console.log(user)
     } catch (error) {
         console.log(error.message)
