@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Toaster } from "react-hot-toast";
+import { ProtectedRoute, Protct } from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -12,9 +13,30 @@ const App = () => {
       <Toaster />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Protct>
+              <Signup />
+            </Protct>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Protct>
+              <Login />
+            </Protct>
+          }
+        />
       </Routes>
     </div>
   );

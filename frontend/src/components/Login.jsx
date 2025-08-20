@@ -1,12 +1,36 @@
-import React from "react";
-import toast, { Toaster } from "react-hot-toast";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import api from "../api/axios.js";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
-  const tst = () => {
-    toast.success("Hell yea");
+  const [form, setForm] = useState({ email: "", password: "" });
+
+  const navigate = useNavigate();
+
+  const handleChancge = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSumbit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await api.post("/login", form);
+      localStorage.setItem("token", res.data.token);
+
+      toast.success("Login Successful!");
+
+      console.log(res.data.user);
+      navigate("/");
+    } catch (error) {
+      toast.error("Login Failed");
+      console.log(error.message);
+    }
   };
   return (
     <div className="flex flex-col items-center justify-center mt-[100px]">
-      <form className="flex flex-col gap-4">
+      <form onSubmit={handleSumbit} className="flex flex-col gap-4">
         <div className="">
           <label className="font-bold text-2xl text-right ">Email: </label>
           <input
@@ -15,6 +39,8 @@ const Signup = () => {
             name="email"
             type="text"
             placeholder="elonmusk@gmail.com"
+            value={form.email}
+            onChange={handleChancge}
           />
         </div>
         <div>
@@ -25,12 +51,16 @@ const Signup = () => {
             name="password"
             type="text"
             placeholder="iowntwitter123"
+            value={form.password}
+            onChange={handleChancge}
           />
         </div>
-        <button type="submit" onClick={tst}>
+        <button
+          className="flex cursor-pointer bg-white justify-center mx-auto p-2 rounded-lg "
+          type="submit"
+        >
           Submit
         </button>
-        <Toaster />
       </form>
     </div>
   );

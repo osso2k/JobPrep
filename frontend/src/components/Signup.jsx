@@ -16,12 +16,17 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await api.post("/signup", form);
+      if (form.email == "" || form.password == "") {
+        toast.error("Please enter the required fields");
+      } else {
+        const res = await api.post("/signup", form);
+        localStorage.setItem("token", res.data.token);
 
-      toast.success("Signup Successful!");
+        toast.success("Signup Successful!");
 
-      console.log(res.data.user);
-      navigate("/");
+        console.log(res.data.user);
+        navigate("/");
+      }
     } catch (error) {
       toast.error("Signup Failed");
       console.log(error.message);
