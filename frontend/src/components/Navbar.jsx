@@ -11,11 +11,28 @@ const Navbar = () => {
   return (
     <div className="h-[60px] w-[400px] bg-white mx-auto rounded-2xl mt-12">
       <div className="flex justify-center ">
-        <div className="flex flex-row justify-center text-2xl text-black font-thin list-none gap-6 mt-4 ml-4 cursor-pointer">
-          <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => navigate("/signup")}>Signup</li>
-          <li onClick={() => navigate("/login")}>Login</li>
-          <li onClick={handleLogout}>Logout</li>
+        <div className="flex flex-row justify-center text-2xl text-black font-thin list-none gap-6 mt-2 ml-4 cursor-pointer">
+          <li
+            className="hover:text-gray-400  m-2"
+            onClick={() => navigate("/")}
+          >
+            Home
+          </li>
+          <li
+            className="hover:text-gray-400 m-2"
+            onClick={() => navigate("/signup")}
+          >
+            Signup
+          </li>
+          <li
+            className="hover:text-gray-400 m-2"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </li>
+          <li className="hover:text-gray-400 m-2" onClick={handleLogout}>
+            Logout
+          </li>
         </div>
       </div>
     </div>

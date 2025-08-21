@@ -30,6 +30,7 @@ const Signup = () => {
   };
   return (
     <div className="flex flex-col items-center justify-center mt-[100px]">
+      <h1 className="text-4xl p-5 mt-[-25px] ">Login</h1>
       <form onSubmit={handleSumbit} className="flex flex-col gap-4">
         <div className="">
           <label className="font-bold text-2xl text-right ">Email: </label>
@@ -61,6 +62,17 @@ const Signup = () => {
         >
           Submit
         </button>
+        <p className="flex  justify-center mx-auto p-2 text-xl">
+          Don't have an account?
+          <span
+            className="pl-1 font-bold cursor-pointer"
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            Signup
+          </span>
+        </p>
       </form>
     </div>
   );
