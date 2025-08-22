@@ -19,7 +19,7 @@ const Signup = () => {
       if (form.email == "" || form.password == "") {
         toast.error("Please enter the required fields");
       } else {
-        const res = await api.post("/signup", form);
+        const res = await api.post("/api/auth/signup", form);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
 

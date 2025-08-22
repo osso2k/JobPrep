@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     const getUser = localStorage.getItem("user");
@@ -27,7 +27,11 @@ const Profile = () => {
       </button>
       <div className="grid grid-cols-2 md:w-[90%] w-[50%] h-[800px] bg-[#1E1E1E] mt-4 mx-auto rounded-3xl border border-[#BB96FC] text-center">
         <div className="order-1">
-          <div></div>
+          <div>
+            <p>
+              Your email is {user.email} and ur pass is {user.password}
+            </p>
+          </div>
         </div>
       </div>
     </div>
