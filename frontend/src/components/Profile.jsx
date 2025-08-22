@@ -26,7 +26,9 @@ const Profile = () => {
         Log out
       </button>
       <div className="grid grid-cols-2 md:w-[90%] w-[50%] h-[800px] bg-[#1E1E1E] mt-4 mx-auto rounded-3xl border border-[#BB96FC] text-center">
-        <div className="order-1">{user.email}</div>
+        <div className="order-1">
+          <div></div>
+        </div>
       </div>
     </div>
   );
