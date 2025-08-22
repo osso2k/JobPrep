@@ -5,4 +5,4 @@ const postSchema = new mongoose.Schema({
     role: { type: String, required: true }
 }, { timestamps: true })
 
-export const Posts = mongoose.model("Posts", postSchema)
+export const Post = mongoose.model("Post", postSchema)

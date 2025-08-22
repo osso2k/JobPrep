@@ -20,9 +20,7 @@ app.use(cors({
 
 await connectDB()
 
-app.post("/post", authMiddleware, (req, res) => {
-    postMessage
-})
+app.post("/post", postMessage)
 
 app.use('/api', router)
 
