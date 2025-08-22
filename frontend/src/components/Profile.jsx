@@ -29,7 +29,7 @@ const Profile = () => {
         <div className="order-1">
           <div>
             <p>
-              Your email is {user.email} and ur pass is {user.password}
+              Your email is {user.email} and ur username is {user.username}
             </p>
           </div>
         </div>

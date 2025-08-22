@@ -4,7 +4,7 @@ import api from "../api/axios.js";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "", username: "" });
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      if (form.email == "" || form.password == "") {
+      if (form.email == "" || form.password == "" || form.username == "") {
         toast.error("Please enter the required fields");
       } else {
         const res = await api.post("/api/auth/signup", form);
@@ -41,6 +41,18 @@ const Signup = () => {
         onSubmit={handleSumbit}
         className="flex flex-col gap-4 border-3 border-[#BB96FC] p-2 rounded-lg "
       >
+        <div className="">
+          <label className="font-bold text-2xl text-right ">Username: </label>
+          <input
+            className="pl-4 ml-2 bg-white w-[280px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35"
+            id="username"
+            name="username"
+            type="username"
+            placeholder="elonmusk@gmail.com"
+            value={form.username}
+            onChange={handleChancge}
+          />
+        </div>
         <div className="">
           <label className="font-bold text-2xl text-right ">Email: </label>
           <input

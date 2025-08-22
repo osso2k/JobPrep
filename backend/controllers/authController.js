@@ -6,11 +6,12 @@ import { generateToken } from '../middleware/authMiddleware.js'
 
 export const signup = async (req, res) => {
     try {
-        const { email, password } = req.body
+        const { email, password, username } = req.body
 
         const hashedPassword = await bcrypt.hash(password, 6)
 
         const user = new User({
+            username,
             email,
             password: hashedPassword
         })
