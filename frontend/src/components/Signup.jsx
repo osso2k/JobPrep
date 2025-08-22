@@ -21,6 +21,7 @@ const Signup = () => {
       } else {
         const res = await api.post("/signup", form);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
 
         toast.success("Signup Successful!");
 
@@ -36,11 +37,14 @@ const Signup = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-[100px]">
       <h1 className="text-4xl p-5 mt-[-25px] ">Signup</h1>
-      <form onSubmit={handleSumbit} className="flex flex-col gap-4">
+      <form
+        onSubmit={handleSumbit}
+        className="flex flex-col gap-4 border-3 border-[#BB96FC] p-2 rounded-lg "
+      >
         <div className="">
           <label className="font-bold text-2xl text-right ">Email: </label>
           <input
-            className="pl-4 ml-12 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl"
+            className="pl-4 ml-12 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35"
             id="email"
             name="email"
             type="email"
@@ -52,7 +56,7 @@ const Signup = () => {
         <div>
           <label className="font-bold text-2xl">Password: </label>
           <input
-            className="pl-4 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl"
+            className="pl-4 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E] text-[#1E1E1E]     placeholder:opacity-35"
             id="password"
             name="password"
             type="password"
@@ -62,7 +66,7 @@ const Signup = () => {
           />
         </div>
         <button
-          className="flex cursor-pointer bg-white justify-center mx-auto p-2 rounded-lg "
+          className="flex cursor-pointer bg-white justify-center mx-auto p-2 rounded-lg text-[#1E1E1E]"
           type="submit"
         >
           Submit

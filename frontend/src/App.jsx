@@ -6,6 +6,9 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Toaster } from "react-hot-toast";
 import { ProtectedRoute, Protct } from "./components/ProtectedRoute";
+import Popular from "./components/Popular";
+import Saved from "./components/Saved";
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
@@ -35,6 +38,30 @@ const App = () => {
             <Protct>
               <Login />
             </Protct>
+          }
+        />
+        <Route
+          path="/popular"
+          element={
+            <ProtectedRoute>
+              <Popular />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/saved"
+          element={
+            <ProtectedRoute>
+              <Saved />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
           }
         />
       </Routes>
