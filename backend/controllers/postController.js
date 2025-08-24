@@ -21,3 +21,8 @@ export const postMessage = async (req, res) => {
         res.json({ message: "Error in posting" }, error).status(501)
     }
 }
+export const getPost = async (req, res) => {
+    const { username } = req.body
+
+    const posts = await User.find({ username }).pop
+}

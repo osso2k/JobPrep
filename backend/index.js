@@ -4,7 +4,7 @@ import { connectDB } from './config/db.js'
 import router from './routes/authRoutes.js'
 import { authMiddleware } from './middleware/authMiddleware.js'
 import cors from 'cors'
-import { postMessage } from './controllers/postController.js'
+import { getPost, postMessage } from './controllers/postController.js'
 
 dotenv.config()
 
@@ -21,6 +21,7 @@ app.use(cors({
 await connectDB()
 
 app.post("/post", authMiddleware, postMessage)
+app.get('/posts', authMiddleware, getPost)
 
 app.use('/api', router)
 
