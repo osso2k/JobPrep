@@ -21,7 +21,7 @@ app.use(cors({
 await connectDB()
 
 app.post("/post", authMiddleware, postMessage)
-app.get('/posts', authMiddleware, getPost)
+app.get('', authMiddleware, getPost)
 
 app.use('/api', router)
 

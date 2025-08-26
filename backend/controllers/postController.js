@@ -22,7 +22,8 @@ export const postMessage = async (req, res) => {
     }
 }
 export const getPost = async (req, res) => {
-    const { username } = req.body
+    const userId = req.user._id
 
-    const posts = await User.find({ username }).pop
+    const posts = await Post.find({ user: userId }).sort({ createdAt: -1 })
+    res.json(posts)
 }
