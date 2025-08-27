@@ -44,7 +44,7 @@ const Signup = () => {
         <div className="">
           <label className="font-bold text-2xl text-right ">Username: </label>
           <input
-            className="pl-4 ml-2 bg-white w-[280px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35"
+            className="pl-4 ml-2 bg-white w-[280px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35 mr-2 "
             id="username"
             name="username"
             type="username"
@@ -78,10 +78,10 @@ const Signup = () => {
           />
         </div>
         <button
-          className="flex cursor-pointer bg-white justify-center mx-auto p-2 rounded-lg text-[#1E1E1E]"
+          className="flex cursor-pointer bg-[#BB96FC] justify-center mx-auto p-2 rounded-lg font-bold hover:bg-purple-500"
           type="submit"
         >
-          Submit
+          Signup
         </button>
         <p className="flex  justify-center mx-auto p-2 text-xl">
           Already have an account?

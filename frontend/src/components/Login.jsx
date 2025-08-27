@@ -61,10 +61,10 @@ const Signup = () => {
           />
         </div>
         <button
-          className="flex cursor-pointer bg-white justify-center mx-auto p-2 rounded-lg  text-[#1E1E1E]"
+          className="flex cursor-pointer bg-[#BB96FC] justify-center mx-auto p-2 rounded-lg font-bold hover:bg-purple-500 "
           type="submit"
         >
-          Submit
+          Login
         </button>
         <p className="flex  justify-center mx-auto p-2 text-xl">
           Don't have an account?

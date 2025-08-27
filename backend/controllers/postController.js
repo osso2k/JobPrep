@@ -17,13 +17,14 @@ export const postMessage = async (req, res) => {
         )
         const populatedPost = await Post.findById(post._id).populate('user', 'email');
         res.status(201).json({ message: "Post created", populatedPost })
+        console.log("POST creaated")
     } catch (error) {
         res.json({ message: "Error in posting" }, error).status(501)
     }
 }
 export const getPost = async (req, res) => {
-    const userId = req.user._id
+    // const userId = req.user._id
 
-    const posts = await Post.find({ user: userId }).sort({ createdAt: -1 })
+    const posts = await Post.find().sort({ createdAt: -1 }).limit(5)
     res.json(posts)
 }
