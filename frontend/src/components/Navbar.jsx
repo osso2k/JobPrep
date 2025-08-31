@@ -16,16 +16,11 @@ const Navbar = () => {
           </li>
           <li
             className="hover:text-gray-400 m-2"
-            onClick={() => navigate("/popular")}
+            onClick={() => navigate("/explore")}
           >
-            Popular
+            Explore
           </li>
-          <li
-            className="hover:text-gray-400 m-2"
-            onClick={() => navigate("/saved")}
-          >
-            Saved
-          </li>
+
           <li
             className="hover:text-gray-400 m-2 pr-3"
             onClick={() => navigate("/profile")}
