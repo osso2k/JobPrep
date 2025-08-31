@@ -8,10 +8,11 @@ import { Toaster } from "react-hot-toast";
 import { ProtectedRoute, Protct } from "./components/ProtectedRoute";
 import Explore from "./components/Explore";
 import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   return (
-    <div className=" flex flex-col h-full ">
+    <div className="flex flex-col h-full">
       <Toaster />
       <Navbar />
       <Routes>
@@ -55,6 +56,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        {/* Add the catch-all route at the end */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
