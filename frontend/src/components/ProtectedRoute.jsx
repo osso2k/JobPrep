@@ -1,12 +1,47 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import * as jwt_decode from "jwt-decode";
 
 export const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
+  useEffect(() => {
+    const checkToken = () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        navigate("/login", { replace: true });
+        return;
+      }
+
+      try {
+        const decodedToken = jwt_decode.jwtDecode(token);
+        const currentTime = Date.now() / 1000;
+
+        if (decodedToken.exp < currentTime) {
+          localStorage.removeItem("token");
+          navigate("/login", { replace: true });
+        }
+      } catch (error) {
+        localStorage.removeItem("token");
+        navigate("/login", { replace: true });
+        console.log(error.message);
+      }
+    };
+
+    checkToken();
+
+    window.addEventListener("tokenExpired", () => {
+      navigate("/login", { replace: true });
+    });
+
+    return () => {
+      window.removeEventListener("tokenExpired", () => {
+        navigate("/login", { replace: true });
+      });
+    };
+  }, [navigate]);
+
   return children;
 };
 export const Protct = ({ children }) => {
