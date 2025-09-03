@@ -25,6 +25,7 @@ await connectDB()
 
 app.post("/post", authMiddleware, postMessage)
 app.get('', authMiddleware, getPost)
+// app.get('/myposts',authMiddleware,myPosts)
 
 app.use('/api', router)
 
