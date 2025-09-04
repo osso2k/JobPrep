@@ -1,28 +1,41 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="h-[50px] w-[300px] bg-[#1E1E1E] mx-auto rounded-2xl mt-12 border border-[#E0E0E0]">
       <div className="flex justify-center ">
-        <div className="flex flex-row justify-center text-lg text-[#E0E0E0] font-thin list-none gap-6 mt-1 ml-4 cursor-pointer">
+        <div className="flex flex-row justify-center text-lg text-[#E0E0E0] font-thin list-none gap-6 mt-1 mx-auto cursor-pointer">
           <li
-            className="hover:text-gray-400  m-2"
+            className={` m-2 ${
+              location.pathname === "/"
+                ? "text-gray-400 "
+                : "hover:text-gray-400 "
+            }`}
             onClick={() => navigate("/")}
           >
             Home
           </li>
           <li
-            className="hover:text-gray-400 m-2"
+            className={` m-2 ${
+              location.pathname === "/explore"
+                ? "text-gray-400 "
+                : "hover:text-gray-400 "
+            }`}
             onClick={() => navigate("/explore")}
           >
             Explore
           </li>
 
           <li
-            className="hover:text-gray-400 m-2 pr-3"
+            className={` m-2 ${
+              location.pathname === "/profile"
+                ? "text-gray-400 "
+                : "hover:text-gray-400 "
+            }`}
             onClick={() => navigate("/profile")}
           >
             Profile
