@@ -31,9 +31,6 @@ api.interceptors.response.use(
 
             // Use window.location for hard redirect
             window.location.replace('/login');
-
-            // Or alternatively, you can dispatch a custom event
-            window.dispatchEvent(new CustomEvent('tokenExpired'));
         }
         return Promise.reject(error);
     }
