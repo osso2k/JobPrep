@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="h-[50px] w-[300px] bg-[#1E1E1E] mx-auto rounded-2xl mt-12 border border-[#E0E0E0]">
+    <div className="h-[50px] w-[300px] bg-[#1E1E1E] mx-auto rounded-2xl mt-12 border border-[#E0E0E0] shadow-sm shadow-white">
       <div className="flex justify-center ">
         <div className="flex flex-row justify-center text-lg text-[#E0E0E0] font-thin list-none gap-6 mt-1 mx-auto cursor-pointer">
           <li

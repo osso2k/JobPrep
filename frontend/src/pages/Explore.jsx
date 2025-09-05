@@ -14,7 +14,7 @@ const Explore = () => {
         <div className="flex mt-9 w-[50%] justify-center">
           <input
             type="text"
-            className="rounded-lg h-10 w-[90%] bg-[hsl(0,0%,24%)] pl-4 "
+            className="rounded-lg h-10 w-[90%] bg-[hsl(0,0%,24%)] pl-4 outline-none"
             placeholder="Search questions or job roles..."
           />
           <AiOutlineSearch className=" mt-2 h-7 w-7 ml-[-35px]" />
