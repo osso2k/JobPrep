@@ -58,6 +58,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
+                autoComplete="off"
                 name="content"
                 className="bg-[hsl(0,0%,15%)] rounded-[55px] w-full md:w-2/3 h-[60px] md:h-[80px] text-[#E0E0E0] text-xl md:text-2xl px-6"
                 placeholder="..."
@@ -68,6 +69,7 @@ const Home = () => {
               <input
                 type="text"
                 name="role"
+                autoComplete="off"
                 className="bg-[hsl(0,0%,15%)] rounded-[55px] w-full md:w-1/3 h-[60px] md:h-[80px] text-[#E0E0E0] text-xl md:text-2xl px-6"
                 placeholder="Job role"
                 value={form.role}

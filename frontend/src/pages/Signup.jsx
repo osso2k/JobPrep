@@ -47,6 +47,7 @@ const Signup = () => {
             className="pl-4 ml-2 bg-white w-[280px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35 mr-2 "
             id="username"
             name="username"
+            autoComplete="off"
             type="username"
             placeholder="elonmusk@gmail.com"
             value={form.username}
@@ -59,6 +60,7 @@ const Signup = () => {
             className="pl-4 ml-12 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E]  text-[#1E1E1E]  placeholder:opacity-35"
             id="email"
             name="email"
+            autoComplete="off"
             type="email"
             placeholder="elonmusk@gmail.com"
             value={form.email}
@@ -71,6 +73,7 @@ const Signup = () => {
             className="pl-4 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E] text-[#1E1E1E]     placeholder:opacity-35"
             id="password"
             name="password"
+            autoComplete="off"
             type="password"
             placeholder="iowntwitter123"
             value={form.password}

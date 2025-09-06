@@ -24,11 +24,16 @@ export const postMessage = async (req, res) => {
 }
 export const getPost = async (req, res) => {
 
-    const posts = await Post.find().sort({ createdAt: -1 }).limit(5)
+    const posts = await Post.find().sort({ createdAt: -1 }).limit(3)
     res.json(posts)
 }
 export const myPosts = async (req, res) => {
     const userId = req.user._id
     const posts = await Post.find({ user: userId }).sort({ createdAt: -1 })
+    res.json(posts)
+}
+
+export const allPosts = async (req, res) => {
+    const posts = await Post.find()
     res.json(posts)
 }

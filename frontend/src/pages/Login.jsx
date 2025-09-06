@@ -42,6 +42,7 @@ const Signup = () => {
             className="pl-4 ml-12 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E] text-[#1E1E1E] placeholder:opacity-35"
             id="email"
             name="email"
+            autoComplete="off"
             type="text"
             placeholder="elonmusk@gmail.com"
             value={form.email}
@@ -54,6 +55,7 @@ const Signup = () => {
             className="pl-4 bg-white w-[300px] h-[60px] text-xl rounded-lg placeholder:transition placeholder:duration-500  placeholder:text-xl placeholder:text-[#1E1E1E] placeholder:opacity-35 text-[#1E1E1E]"
             id="password"
             name="password"
+            autoComplete="off"
             type="text"
             placeholder="iowntwitter123"
             value={form.password}
